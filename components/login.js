@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SignIn from './SignIn';
 import styles from '../styles/Login.module.css';
 
 function Login() {
@@ -6,7 +7,9 @@ function Login() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.leftImage}></div>
+      <div className={styles.leftImage}>
+        <img src="/logo-twitter.png" alt="logo" className={styles.logoLeft} />
+      </div>
 
       <div className={styles.rightPanel}>
         <img src="/logo-twitter.png" alt="logo" className={styles.logo} />
@@ -25,6 +28,8 @@ function Login() {
           Sign in
         </button>
       </div>
+
+      {modal === 'signin' && <SignIn onClose={() => setModal(null)} />}
     </div>
   );
 }
