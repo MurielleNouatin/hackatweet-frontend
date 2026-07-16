@@ -20,5 +20,6 @@ export const userInfosSlice = createSlice({
     },
 });
 
-export const { addUserInfosToStore } = userSlice.actions;
-export default userSlice.reducer;
+// 🔥 Correction ici : on exporte depuis userInfosSlice
+export const { addUserInfos } = userInfosSlice.actions;
+export default userInfosSlice.reducer;

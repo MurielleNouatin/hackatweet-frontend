@@ -1,0 +1,14 @@
+.last-tweets {
+  margin-top: 20px;
+}
+
+.last-tweets h3 {
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.tweets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

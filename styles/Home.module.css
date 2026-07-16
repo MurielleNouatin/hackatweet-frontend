@@ -1,0 +1,60 @@
+/* Structure globale */
+.home-container {
+  display: flex;
+  height: 100vh;
+  background-color: #0d1117;
+  color: white;
+  font-family: system-ui, sans-serif;
+}
+
+.left-section {
+  width: 18%;
+  padding: 20px;
+  border-right: 1px solid #2d333b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 2.5rem;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+.profile {
+  margin-top: auto;
+}
+
+.firstname {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.username {
+  color: #8b949e;
+  margin-bottom: 10px;
+}
+
+.left-section button {
+  background-color: #f85149;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+/* SECTION CENTRALE */
+.center-section {
+  width: 55%;
+  padding: 20px;
+  border-right: 1px solid #2d333b;
+  overflow-y: auto;
+}
+
+/* SECTION DROITE */
+.trends {
+  width: 27%;
+  padding: 20px;
+}

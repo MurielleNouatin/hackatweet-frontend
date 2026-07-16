@@ -19,26 +19,6 @@ function SignUp({ onClose }) {
       return;
     }
 
-<<<<<<< HEAD
-const handleClick = () => {
-        fetch('http://localhost:3000/login/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({firstname: firstnameInput, username: usernameInput}),
-        })
-            .then(response => response.json())
-            .then(userData => {
-              if(userData.result) {
-                dispatch(addUserInfos(userData))
-              }
-              setFirstnameInput('');
-              setUsernameInput('');
-            });
-    };
-
-=======
     fetch('http://localhost:3000/login/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -54,7 +34,6 @@ const handleClick = () => {
         }
       });
   };
->>>>>>> 641ec18218ff6c290999be7026c11eb910f012c2
 
   return (
     <div className={styles.modalOverlay}>

@@ -1,71 +1,63 @@
 // components/Home.js
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
-import Tweet from './Tweet';
-import LastTweets from './LastTweets';
-import Trends from './Trends';
-import Login from './login';
+import Tweet from "./Tweet";
+import LastTweets from "./LastTweets";
+import Trends from "./Trends";
 
+import "./Home.css";
 
 function Home() {
-  const user = useSelector((state) => state.user.value);
+  const user = useSelector((state) => state.userInfos.value);
   const [tweets, setTweets] = useState([]);
-  const [content, setContent] = useState('');
+
+  if (!user.token) {
+    window.location.href = "/";
+    return null;
+  }
+
+  const logout = () => {
+    localStorage.clear();
+    window.location.href = "/";
+  };
 
   useEffect(() => {
-    fetch('http://localhost:3000/tweets') // adapte le port du backend de Murielle
+    fetch("http://localhost:3000/tweets")
       .then((res) => res.json())
       .then((data) => setTweets(data.tweets));
   }, []);
 
-  const handlePostTweet = () => {
-    if (content.length === 0 || content.length > 280) return;
-
-    fetch('http://localhost:3000/tweets', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ content, token: user.token }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setTweets([data.tweet, ...tweets]);
-        setContent('');
-      });
+  const handleNewTweet = (newTweet) => {
+    setTweets([newTweet, ...tweets]);
   };
 
-  function logout() {
-    return <Login/>
-  }
   return (
-    <div>
-  
-      <div className="user-section">
-        <div className="logo" onClick={() => window.location.href = "/home"}></div>
+    <div className="home-container">
+
+      {/* LEFT SECTION */}
+      <div className="left-section">
+        <div className="logo">🕊️</div>
+
         <div className="profile">
-          <p className="firstname">{firstname}</p>
-          <p className="username">@{username}</p>
-          <button onClick={() => logout()}>Logout</button>
+          <p className="firstname">{user.firstname}</p>
+          <p className="username">@{user.username}</p>
+          <button onClick={logout}>Logout</button>
         </div>
-
       </div>
 
-      <div>
-        <textarea
-          maxLength={280}
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="What's up?"
-        />
-        <p>{content.length}/280</p>
-        <button onClick={handlePostTweet}>Tweet</button>
+      {/* CENTER SECTION */}
+      <main className="center-section">
+        <Tweet onNewTweet={handleNewTweet} />
+        <LastTweets tweets={tweets} />
+      </main>
 
-        <LastTweets tweets={tweets} currentUsername={user.username} token={user.token} />
-      </div>
-
-      <Trends tweets={tweets} />
+      {/* RIGHT SECTION */}
+      <Trends />
     </div>
   );
 }
 
 export default Home;
+
+
