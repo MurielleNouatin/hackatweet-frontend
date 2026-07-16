@@ -1,52 +1,72 @@
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-import { useState, useEffect } from 'react';
-import Dashboard from '../components/Dashboard'
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
+import { login } from '../reducers/user';
+import styles from '../styles/Login.module.css';
 
-function signUp() {
+function SignUp({ onClose }) {
+  const [firstname, setFirstname] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const [firstnameInput, setFirstnameInput] = useState('');
-  const [usernameInput, setUsernameInput] = useState('');
+  const dispatch = useDispatch();
+  const router = useRouter();
 
+  const handleSignUp = () => {
+    if (!firstname || !username || !password) {
+      setError('Please fill in all fields');
+      return;
+    }
 
-const handleClick = () => {
-        fetch('http://localhost:3000/login/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({firstname: firstnameInput, username: usernameInput}),
-        })
-            .then(response => response.json())
-            .then(userData => {
-                setFirstnameInput('');
-                setUsernameInput('');
-            });
-    };
-
+    fetch('http://localhost:3000/login/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ firstname, username, password }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.result) {
+          dispatch(login({ username, firstname, token: data.token }));
+          router.push('/');
+        } else {
+          setError(data.error);
+        }
+      });
+  };
 
   return (
-    <div className={styles.container}>
-      {/* <Image src="" alt="" width={200} height={200} /> */}
-      <h1>Create your Hackatweet account</h1>
-      <div className={styles.inputContainer}>
-        <span>Firstname</span>
-        <input type="text" id="firstname" onChange={(e)=> setFirstnameInput(e.target.value)} value={firstnameInput}/>
-      </div>
-    
-      <div className={styles.inputContainer}>
-        <span>Username</span>
-        <input type="Username" id="Username" onChange={(e)=> setUsernameInput(e.target.value)} value={usernameInput} />
-      </div>
+    <div className={styles.modalOverlay}>
+      <div className={styles.modal}>
+        <button className={styles.closeBtn} onClick={onClose}>×</button>
+        <img src="/logo-twitter.png" alt="logo" className={styles.modallogo} />
+        <h2>Create your account</h2>
 
-      <div className={styles.inputContainer}>
-        <span>Password</span>
-        <input type="password" id="password" onChange={(e)=> setPassword(e.target.value)} value={password} />
-      </div>
+        <input
+          placeholder="First name"
+          value={firstname}
+          onChange={(e) => setFirstname(e.target.value)}
+        />
+        <input
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-      <button id="sihnUP" onClick={() => handleClick()}>Sign Up</button>
+        {error && <p className={styles.error}>{error}</p>}
+
+        <button className={styles.modalSubmitBtn} onClick={handleSignUp}>
+          Sign up
+        </button>
+      </div>
     </div>
   );
 }
 
-export default Home;
+export default SignUp;

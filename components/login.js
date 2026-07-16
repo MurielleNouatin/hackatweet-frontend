@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import SignIn from './SignIn';
+import SignUp from './SignUp';
 import styles from '../styles/Login.module.css';
 
 function Login() {
@@ -15,7 +16,6 @@ function Login() {
         <img src="/logo-twitter.png" alt="logo" className={styles.logo} />
 
         <h1 className={styles.title}>See what's happening</h1>
-
         <h2 className={styles.subtitle}>Join Hackatweet today.</h2>
 
         <button className={styles.signupBtn} onClick={() => setModal('signup')}>
@@ -30,6 +30,7 @@ function Login() {
       </div>
 
       {modal === 'signin' && <SignIn onClose={() => setModal(null)} />}
+      {modal === 'signup' && <SignUp onClose={() => setModal(null)} />}
     </div>
   );
 }
