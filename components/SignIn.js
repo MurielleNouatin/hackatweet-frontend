@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { login } from '../reducers/user';
 import styles from '../styles/Login.module.css';
 
-function SignUp({ onClose }) {
+function SignIn({ onClose }) {
   const [firstname, setFirstname] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -13,33 +13,13 @@ function SignUp({ onClose }) {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const handleSignUp = () => {
+  const handleSignIn = () => {
     if (!firstname || !username || !password) {
       setError('Please fill in all fields');
       return;
     }
 
-<<<<<<< HEAD
-const handleClick = () => {
-        fetch('http://localhost:3000/login/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({firstname: firstnameInput, username: usernameInput}),
-        })
-            .then(response => response.json())
-            .then(userData => {
-              if(userData.result) {
-                dispatch(addUserInfos(userData))
-              }
-              setFirstnameInput('');
-              setUsernameInput('');
-            });
-    };
-
-=======
-    fetch('http://localhost:3000/login/signup', {
+    fetch('http://localhost:3000/login/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ firstname, username, password }),
@@ -54,20 +34,13 @@ const handleClick = () => {
         }
       });
   };
->>>>>>> 641ec18218ff6c290999be7026c11eb910f012c2
 
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modal}>
         <button className={styles.closeBtn} onClick={onClose}>×</button>
         <img src="/logo-twitter.png" alt="logo" className={styles.modallogo} />
-        <h2>Create your account</h2>
-
-        <input
-          placeholder="First name"
-          value={firstname}
-          onChange={(e) => setFirstname(e.target.value)}
-        />
+        <h2>Connect to Hackatweek</h2>
         <input
           placeholder="Username"
           value={username}
@@ -82,12 +55,12 @@ const handleClick = () => {
 
         {error && <p className={styles.error}>{error}</p>}
 
-        <button className={styles.modalSubmitBtn} onClick={handleSignUp}>
-          Sign up
+        <button className={styles.modalSubmitBtn} onClick={handleSignIn}>
+          Sign in
         </button>
       </div>
     </div>
   );
 }
 
-export default SignUp;
+export default SignIn;
