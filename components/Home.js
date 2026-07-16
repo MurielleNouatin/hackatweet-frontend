@@ -1,8 +1,12 @@
 // components/Home.js
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+
+import Tweet from './Tweet';
 import LastTweets from './LastTweets';
 import Trends from './Trends';
+import Login from './login';
+
 
 function Home() {
   const user = useSelector((state) => state.user.value);
@@ -30,10 +34,20 @@ function Home() {
       });
   };
 
+  function logout() {
+    return <Login/>
+  }
   return (
     <div>
-      <div>
-        {/* logo, username: {user.username}, bouton logout */}
+  
+      <div className="user-section">
+        <div className="logo" onClick={() => window.location.href = "/home"}></div>
+        <div className="profile">
+          <p className="firstname">{firstname}</p>
+          <p className="username">@{username}</p>
+          <button onClick={() => logout()}>Logout</button>
+        </div>
+
       </div>
 
       <div>
@@ -41,7 +55,7 @@ function Home() {
           maxLength={280}
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          placeholder="What's happening?"
+          placeholder="What's up?"
         />
         <p>{content.length}/280</p>
         <button onClick={handlePostTweet}>Tweet</button>

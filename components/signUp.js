@@ -19,8 +19,11 @@ const handleClick = () => {
         })
             .then(response => response.json())
             .then(userData => {
-                setFirstnameInput('');
-                setUsernameInput('');
+              if(userData.result) {
+                dispatch(addUserInfos(userData))
+              }
+              setFirstnameInput('');
+              setUsernameInput('');
             });
     };
 
