@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.leftImage {
+  flex: 1;
+  background-image: url('/background-twitter.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.rightPanel {
+  flex: 1;
+  background-color: #15202b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 100px;
+}
+
+.logo {
+  width: 50px;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-family: 'Mont-Heavy', Verdana, sans-serif;
+  color: white;
+  font-size: 64px;
+  line-height: 1.1;
+  margin-bottom: 30px;
+}
+
+.subtitle {
+  font-family: 'Mont-Heavy', Verdana, sans-serif;
+  color: white;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.signupBtn {
+  background-color: #1d9bf0;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 0;
+  width: 300px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.alreadyHave {
+  color: white;
+  font-family: Verdana, sans-serif;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.signinBtn {
+  background-color: transparent;
+  color: #1d9bf0;
+  border: 1px solid #1d9bf0;
+  border-radius: 25px;
+  padding: 12px 0;
+  width: 300px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
