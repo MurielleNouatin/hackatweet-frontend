@@ -5,7 +5,6 @@ import { login } from '../reducers/user';
 import styles from '../styles/Login.module.css';
 
 function SignIn({ onClose }) {
-  const [firstname, setFirstname] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -14,7 +13,7 @@ function SignIn({ onClose }) {
   const router = useRouter();
 
   const handleSignIn = () => {
-    if (!firstname || !username || !password) {
+    if (!username || !password) {
       setError('Please fill in all fields');
       return;
     }
@@ -22,12 +21,12 @@ function SignIn({ onClose }) {
     fetch('http://localhost:3000/login/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ firstname, username, password }),
+      body: JSON.stringify({ username, password }),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.result) {
-          dispatch(login({ username, firstname, token: data.token }));
+          dispatch(login({ username, firstname: data.firstname, token: data.token }));
           router.push('/');
         } else {
           setError(data.error);
@@ -41,11 +40,6 @@ function SignIn({ onClose }) {
         <button className={styles.closeBtn} onClick={onClose}>×</button>
         <img src="/logo-twitter.png" alt="logo" className={styles.modallogo} />
         <h2>Connect to Hackatweek</h2>
-        <input
-          placeholder="First name"
-          value={firstname}
-          onChange={(e) => setFirstname(e.target.value)}
-        />
         <input
           placeholder="Username"
           value={username}
