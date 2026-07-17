@@ -32,7 +32,7 @@ function Tweet({ onNewTweet }) {
   };
 
   return (
-    <div className="styles.tweet-form">
+    <div className={styles.tweetForm}>
       <textarea
         maxLength={280}
         value={content}
