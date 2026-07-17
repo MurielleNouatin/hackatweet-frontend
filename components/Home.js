@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { logout } from '../reducers/user';
+import Link from 'next/link';
 
 import Tweet from "./Tweet";
 import LastTweets from "./LastTweets";
@@ -31,7 +32,9 @@ function Home() {
     <div className={styles.homeContainer}>
       <div className={styles.leftSection}>
         <div className={styles.logo}>
-          <img src="/logo-twitter.png" alt="logo" />
+          <Link href="/home">
+            <img src="/logo-twitter.png" alt="logo" />
+          </Link>
         </div>
         <div className={styles.profile}>
           <p className={styles.firstname}>{user.firstname}</p>
@@ -45,7 +48,7 @@ function Home() {
         <LastTweets tweets={tweets} />
       </main>
 
-      <Trends />
+      <Trends tweets={tweets} />
     </div>
   );
 }
