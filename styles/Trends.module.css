@@ -1,5 +1,5 @@
 .trendsContainer {
-  background-color: #15202b; /* fond principal */
+  background-color: #151D27; 
   color: white;
   padding: 20px;
   border-radius: 12px;
@@ -12,7 +12,7 @@
 }
 
 .trendsBox {
-  background-color: #1e2a38; /* ✅ plus clair que le fond principal */
+  background-color: #1e2a38; 
   border-radius: 12px;
   padding: 15px;
 }
@@ -28,12 +28,12 @@
 .hashtag {
   color: white;
   font-weight: bold;
-  font-size: 16px; /* plus grand pour le hashtag */
+  font-size: 16px; 
   margin: 0;
 }
 
 .count {
   color: #8899a6;
-  font-size: 13px; /* ✅ plus petit pour le nombre de tweets */
+  font-size: 13px; 
   margin: 2px 0 0 0;
 }

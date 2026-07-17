@@ -44,6 +44,7 @@ function Home() {
       </div>
 
       <main className={styles.centerSection}>
+        <h2>Home</h2>
         <Tweet onNewTweet={handleNewTweet} />
         <LastTweets tweets={tweets} />
       </main>

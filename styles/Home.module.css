@@ -1,16 +1,15 @@
+
 .homeContainer {
   display: flex;
   height: 100vh;
-  background-color: #15202b; /* fond bleu foncé */
+  background-color: #15202b;
   color: white;
-  font-family: "Verdana", sans-serif;
+  font-family: var(--font-base);
 }
-
-/* --- SECTION GAUCHE --- */
 
 .leftSection {
   width: 25%;
-  background-color: #192734;
+  background-color: #151D27;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -21,6 +20,8 @@
 .logo img {
   width: 60px;
   margin-bottom: 40px;
+  transform: rotate(0.5turn);
+  font-family: var(--font-heavy);
 }
 
 .profile {
@@ -30,11 +31,13 @@
 .firstname {
   font-weight: bold;
   font-size: 18px;
+  font-family: var(--font-heavy);
 }
 
 .username {
   color: #8899a6;
   margin-bottom: 10px;
+  font-family: var(--font-base);
 }
 
 .profile button {
@@ -46,7 +49,7 @@
   cursor: pointer;
 }
 
-/* --- SECTION CENTRALE --- */
+
 .centerSection {
   width: 50%;
   border-left: 1px solid #38444d;
@@ -54,81 +57,3 @@
   padding: 20px;
   overflow-y: auto;
 }
-
-/* --- SECTION DROITE --- */
-.rightSection {
-  width: 25%;
-  background-color: #192734;
-  padding: 20px;
-}
-
-/* --- FORMULAIRE DE TWEET --- */
-.tweet-form {
-  background-color: #192734;
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 20px;
-}
-
-.tweet-form textarea {
-  width: 100%;
-  background-color: #15202b;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 10px;
-  resize: none;
-  font-size: 16px;
-}
-
-.tweet-form button {
-  background-color: #1da1f2;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 8px 16px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-/* --- TWEETS --- */
-.tweet-item {
-  background-color: #192734;
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 15px;
-}
-
-.tweet-item:hover {
-  background-color: #22303c;
-}
-
-.tweet-author {
-  font-weight: bold;
-}
-
-.tweet-username {
-  color: #8899a6;
-}
-
-.tweet-content {
-  margin-top: 8px;
-  font-size: 15px;
-}
-
-.tweet-actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.tweet-actions button {
-  background: none;
-  border: none;
-  color: #1da1f2;
-  cursor: pointer;
-}
-
-
-
-
