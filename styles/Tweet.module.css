@@ -1,11 +1,11 @@
-.tweet-form {
+.tweetForm {
   background-color: #161b22;
   padding: 15px;
   border-radius: 12px;
   margin-bottom: 20px;
 }
 
-.tweet-form textarea {
+.tweetForm textarea {
   width: 100%;
   height: 80px;
   background-color: #0d1117;
@@ -14,15 +14,16 @@
   padding: 10px;
   color: white;
   resize: none;
+  box-sizing: border-box;
 }
 
-.tweet-form p {
+.tweetForm p {
   text-align: right;
   color: #8b949e;
   font-size: 0.9rem;
 }
 
-.tweet-form button {
+.tweetForm button {
   background-color: #1da1f2;
   border: none;
   padding: 10px 20px;

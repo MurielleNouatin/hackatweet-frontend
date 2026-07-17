@@ -1,14 +1,74 @@
-.last-tweets {
+.lastTweets {
   margin-top: 20px;
+  color: white;
 }
 
-.last-tweets h3 {
+.lastTweets h3 {
   margin-bottom: 15px;
   font-size: 1.3rem;
+  color: white;
 }
 
-.tweets-list {
+.tweetsList {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.tweetItem {
+  background-color: #161b22;
+  padding: 15px;
+  border-radius: 12px;
+  color: white;
+}
+
+.tweetItem p {
+  color: white;
+  margin: 8px 0;
+}
+
+.tweetActions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.tweetHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.tweetMeta {
+  margin: 0;
+  color: white;
+}
+
+.handle {
+  color: #8899a6;
+  font-weight: normal;
+}
+
+.dot {
+  color: #8899a6;
+}
+
+.time {
+  color: #8899a6;
+  font-weight: normal;
+}
+
+.content {
+  color: white;
+  margin: 8px 0;
 }
