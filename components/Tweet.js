@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import "./Tweet.css";
 
 function Tweet({ onNewTweet }) {
-  const user = useSelector((state) => state.user.value);
+  const user = useSelector((state) => state.userInfos.value);
   const [content, setContent] = useState("");
 
   const handlePostTweet = () => {

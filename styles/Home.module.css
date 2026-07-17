@@ -37,8 +37,7 @@
 }
 
 .left-section button {
-  background-color: #f85149;
-  border: none;
+  border: 1px;
   padding: 10px 15px;
   border-radius: 20px;
   color: white;

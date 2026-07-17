@@ -35,9 +35,9 @@ function Home() {
   return (
     <div className="home-container">
 
-      {/* LEFT SECTION */}
+      {/* bloc gauche */}
       <div className="left-section">
-        <div className="logo">🕊️</div>
+        <div className="logo"></div>
 
         <div className="profile">
           <p className="firstname">{user.firstname}</p>
@@ -46,13 +46,13 @@ function Home() {
         </div>
       </div>
 
-      {/* CENTER SECTION */}
+      {/* bloc centrée */}
       <main className="center-section">
         <Tweet onNewTweet={handleNewTweet} />
         <LastTweets tweets={tweets} />
       </main>
 
-      {/* RIGHT SECTION */}
+      {/* bloc droit */}
       <Trends />
     </div>
   );
