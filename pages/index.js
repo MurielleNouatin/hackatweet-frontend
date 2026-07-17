@@ -7,3 +7,4 @@ export default function IndexPage() {
 
   return user.isConnected ? <Home /> : <Login />;
 }
+// comment
