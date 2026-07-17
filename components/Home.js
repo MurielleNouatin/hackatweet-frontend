@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
+import { useRouter } from 'next/router';
 import { logout } from '../reducers/user';
-import Link from 'next/link';
 
 import Tweet from "./Tweet";
 import LastTweets from "./LastTweets";
@@ -12,6 +12,7 @@ import styles from '../styles/Home.module.css';
 function Home() {
   const user = useSelector((state) => state.user.value);
   const dispatch = useDispatch();
+  const router = useRouter();
   const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
@@ -28,28 +29,38 @@ function Home() {
     dispatch(logout());
   };
 
+  const goHome = () => {
+    router.push('/');
+  };
+
   return (
     <div className={styles.homeContainer}>
       <div className={styles.leftSection}>
-        <div className={styles.logo}>
-          <Link href="/home">
-            <img src="/logo-twitter.png" alt="logo" />
-          </Link>
-        </div>
+        <img
+          src="/logo-twitter.png"
+          alt="logo"
+          className={styles.logo}
+          onClick={goHome}
+        />
         <div className={styles.profile}>
-          <p className={styles.firstname}>{user.firstname}</p>
-          <p className={styles.username}>@{user.username}</p>
+          <img src="/profile.JPG" alt="avatar" className={styles.userAvatar} />
+          <div className={styles.userText}>
+            <p className={styles.firstname}>{user.firstname}</p>
+            <p className={styles.username}>@{user.username}</p>
+          </div>
           <button onClick={handleLogout}>Logout</button>
         </div>
       </div>
 
       <main className={styles.centerSection}>
-        <h2>Home</h2>
+        <h2 className={styles.title}>Home</h2>
         <Tweet onNewTweet={handleNewTweet} />
         <LastTweets tweets={tweets} setTweets={setTweets} />
       </main>
 
-      <Trends tweets={tweets} />
+      <div className={styles.rightSection}>
+        <Trends tweets={tweets} />
+      </div>
     </div>
   );
 }

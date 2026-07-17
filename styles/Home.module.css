@@ -1,42 +1,62 @@
 .homeContainer {
   display: flex;
   height: 100vh;
+  width: 100%;
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-base);
+  overflow-x: hidden;
 }
 
 .leftSection {
-  width: 25%;
-  background-color: var(--color-bg);
+  width: 250px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 0;
+  padding: 30px 20px;
+  border-right: 1px solid var(--color-border);
 }
 
-.logo img {
-  width: 60px;
-  margin-bottom: 40px;
+.logo {
+  width: 40px;
+  cursor: pointer;
+  margin-bottom: auto;
   transform: rotate(0.5turn);
 }
 
 .profile {
-  text-align: center;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.userAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.userText {
+  display: flex;
+  flex-direction: column;
 }
 
 .firstname {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   font-family: var(--font-heavy);
   color: var(--color-text);
+  margin: 0;
 }
 
 .username {
   color: var(--color-text-muted);
-  margin-bottom: 10px;
   font-family: var(--font-base);
+  font-size: 14px;
+  margin: 0;
 }
 
 .profile button {
@@ -46,6 +66,8 @@
   border-radius: 20px;
   padding: 8px 16px;
   cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
   transition: background-color 0.2s ease;
 }
 
@@ -54,9 +76,20 @@
 }
 
 .centerSection {
-  width: 50%;
-  border-left: 1px solid var(--color-border);
+  flex: 1;
+  padding: 30px;
   border-right: 1px solid var(--color-border);
-  padding: 20px;
   overflow-y: auto;
+}
+
+.title {
+  font-family: var(--font-heavy);
+  color: var(--color-text);
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.rightSection {
+  width: 300px;
+  padding: 30px 20px;
 }
