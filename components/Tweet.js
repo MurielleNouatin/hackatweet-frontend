@@ -6,7 +6,7 @@ import { setDraft, clearDraft } from "../reducers/tweetDraft";
 
 
 function Tweet({ onNewTweet }) {
-  const user = useSelector((state) => state.userInfos.value);
+  const user = useSelector((state) => state.user.value);
   const content = useSelector((state) => state.tweetDraft.value);
 
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
-// components/Home.js
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
+import { logout } from '../reducers/user';
 
 import Tweet from "./Tweet";
 import LastTweets from "./LastTweets";
@@ -9,18 +9,9 @@ import Trends from "./Trends";
 import styles from '../styles/Home.module.css';
 
 function Home() {
-  const user = useSelector((state) => state.userInfos.value);
-  //const [tweets, setTweets] = useState([]);
-
-  if (!user.token) {
-    window.location.href = "/";
-    return null;
-  }
-
-  const logout = () => {
-    localStorage.clear();
-    window.location.href = "/";
-  };
+  const user = useSelector((state) => state.user.value);
+  const dispatch = useDispatch();
+  const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/tweets")
@@ -32,33 +23,31 @@ function Home() {
     setTweets([newTweet, ...tweets]);
   };
 
-  return (
-    <div className="styles.home-container">
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
-      {/* bloc gauche */}
-      <div className="styles.left-section">
-        <div className="styles.logo">
-          <img src="/logo-twitter.png" alt="logo" className={styles.modallogo} />
+  return (
+    <div className={styles.homeContainer}>
+      <div className={styles.leftSection}>
+        <div className={styles.logo}>
+          <img src="/logo-twitter.png" alt="logo" />
         </div>
-        <div className="styles.profile">
-          <p className="styles.firstname">{user.firstname}</p>
-          <p className="styles.username">@{user.username}</p>
-          <button onClick={logout}>Logout</button>
+        <div className={styles.profile}>
+          <p className={styles.firstname}>{user.firstname}</p>
+          <p className={styles.username}>@{user.username}</p>
+          <button onClick={handleLogout}>Logout</button>
         </div>
       </div>
 
-      {/* bloc centrée */}
-      <main className="styles.center-section">
+      <main className={styles.centerSection}>
         <Tweet onNewTweet={handleNewTweet} />
         <LastTweets tweets={tweets} />
       </main>
 
-      {/* bloc droit */}
       <Trends />
     </div>
   );
 }
 
 export default Home;
-
-

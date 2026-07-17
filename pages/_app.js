@@ -3,9 +3,8 @@ import { Provider } from 'react-redux';
 import user from '../reducers/user';
 import tweetDraft from '../reducers/tweetDraft';
 
-
 const store = configureStore({
-  reducer: { userInfos, tweetDraft },
+  reducer: { user, tweetDraft },
 });
 
 function App({ Component, pageProps }) {

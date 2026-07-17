@@ -1,6 +1,6 @@
 // components/Trends.js
 import { useEffect, useState } from "react";
-import "./Trends.css";
+import styles from '../styles/Trends.module.css';
 
 function Trends() {
   const [trends, setTrends] = useState([]);
