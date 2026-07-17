@@ -13,18 +13,22 @@ function Hashtag() {
   const [searchValue, setSearchValue] = useState('');
   const [tweets, setTweets] = useState([]);
 
-  useEffect(() => {
+    useEffect(() => {
     if (name) {
-      setSearchValue(name);
+      setSearchValue(`#${name}`);
       fetch(`http://localhost:3000/tweets/hashtag/${name}`)
         .then((res) => res.json())
         .then((data) => setTweets(data.tweets));
     }
   }, [name]);
 
-  const handleSearch = () => {
-    if (searchValue.trim()) {
-      router.push(`/hashtag/${searchValue.trim()}`);
+    const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchValue(value); // garde le # tel quel dans le champ affiché
+
+    const cleanValue = value.replace('#', ''); // retire le # seulement pour l'URL
+    if (cleanValue.trim()) {
+      router.push(`/hashtag/${cleanValue.trim()}`, undefined, { shallow: true });
     }
   };
 
@@ -42,8 +46,11 @@ function Hashtag() {
           onClick={goHome}
         />
         <div className={styles.userInfo}>
-          <p className={styles.username}>{user.firstname}</p>
-          <p className={styles.handle}>@{user.username}</p>
+          <img src="/profile.JPG" alt="avatar" className={styles.userAvatar} />
+          <div className={styles.userText}>
+            <p className={styles.username}>{user.firstname}</p>
+            <p className={styles.handle}>@{user.username}</p>
+          </div>
         </div>
       </div>
 
@@ -54,15 +61,14 @@ function Hashtag() {
           type="text"
           className={styles.searchInput}
           value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+          onChange={handleSearchChange}
           placeholder="Search hashtag..."
         />
 
         {tweets.length === 0 ? (
           <p className={styles.noResults}>No tweets found with #{name}</p>
         ) : (
-          <LastTweets tweets={tweets} currentUsername={user.username} />
+          <LastTweets tweets={tweets} setTweets={setTweets} currentUsername={user.username} />
         )}
       </div>
 

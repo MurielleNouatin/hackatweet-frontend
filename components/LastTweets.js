@@ -82,7 +82,7 @@ function LastTweets({ tweets, setTweets }) {
                   onClick={() => handleLike(tweet._id)}
                   style={{ cursor: 'pointer' }}
                 />
-                <span>{tweet.likes.length}</span>
+                <span style={{ color: isLiked ? '#F71773' : 'white' }}>{tweet.likes.length}</span>
 
                 {isOwner && (
                   <FontAwesomeIcon
