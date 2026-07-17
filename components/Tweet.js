@@ -1,5 +1,5 @@
 // components/Tweet.js
-import { useState } from "react";
+import { useEffect , useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from '../styles/Tweet.module.css';
 import { setDraft, clearDraft } from "../reducers/tweetDraft";

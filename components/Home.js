@@ -46,7 +46,7 @@ function Home() {
       <main className={styles.centerSection}>
         <h2>Home</h2>
         <Tweet onNewTweet={handleNewTweet} />
-        <LastTweets tweets={tweets} />
+        <LastTweets tweets={tweets} setTweets={setTweets} />
       </main>
 
       <Trends tweets={tweets} />

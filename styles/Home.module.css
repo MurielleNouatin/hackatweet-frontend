@@ -1,15 +1,14 @@
-
 .homeContainer {
   display: flex;
   height: 100vh;
-  background-color: #15202b;
-  color: white;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   font-family: var(--font-base);
 }
 
 .leftSection {
   width: 25%;
-  background-color: #151D27;
+  background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -21,7 +20,6 @@
   width: 60px;
   margin-bottom: 40px;
   transform: rotate(0.5turn);
-  font-family: var(--font-heavy);
 }
 
 .profile {
@@ -32,28 +30,33 @@
   font-weight: bold;
   font-size: 18px;
   font-family: var(--font-heavy);
+  color: var(--color-text);
 }
 
 .username {
-  color: #8899a6;
+  color: var(--color-text-muted);
   margin-bottom: 10px;
   font-family: var(--font-base);
 }
 
 .profile button {
   background-color: transparent;
-  color: white;
-  border: 1px solid;
+  color: var(--color-text);
+  border: 1px solid var(--color-text-muted);
   border-radius: 20px;
   padding: 8px 16px;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
+.profile button:hover {
+  background-color: #212F40;
+}
 
 .centerSection {
   width: 50%;
-  border-left: 1px solid #38444d;
-  border-right: 1px solid #38444d;
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
   padding: 20px;
   overflow-y: auto;
 }
