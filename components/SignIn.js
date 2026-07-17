@@ -26,7 +26,7 @@ function SignIn({ onClose }) {
       .then((res) => res.json())
       .then((data) => {
         if (data.result) {
-          dispatch(login({ username, firstname, token: data.token, userId: data.userId }));
+          dispatch(login({ username, firstname: data.firstname, token: data.token, userId: data.userId }));
           router.push('/');
         } else {
           setError(data.error);
