@@ -27,7 +27,7 @@ function SignUp({ onClose }) {
       .then((res) => res.json())
       .then((data) => {
         if (data.result) {
-          dispatch(login({ username, firstname, token: data.token }));
+          dispatch(login({ username, firstname, token: data.token, userId: data.userId }));
           router.push('/');
         } else {
           setError(data.error);

@@ -59,7 +59,9 @@ function LastTweets({ tweets, setTweets }) {
       <div className={styles.tweetsList}>
         {tweets.map((tweet) => {
           const isOwner = tweet.user.username === user.username;
-          const isLiked = tweet.likes.includes(tweet.user._id);
+          const isLiked = tweet.likes.some(
+            (id) => id === user.userId || id.toString?.() === user.userId
+          );
 
           return (
             <div key={tweet._id} className={styles.tweetItem}>
@@ -82,7 +84,9 @@ function LastTweets({ tweets, setTweets }) {
                   onClick={() => handleLike(tweet._id)}
                   style={{ cursor: 'pointer' }}
                 />
-                <span style={{ color: isLiked ? '#F71773' : 'white' }}>{tweet.likes.length}</span>
+                <span style={{ color: isLiked ? '#F71773' : 'white' }}>
+                  {tweet.likes.length}
+                </span>
 
                 {isOwner && (
                   <FontAwesomeIcon
