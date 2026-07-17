@@ -6,11 +6,11 @@ import Tweet from "./Tweet";
 import LastTweets from "./LastTweets";
 import Trends from "./Trends";
 
-import "./Home.css";
+import styles from '../styles/Home.module.css';
 
 function Home() {
   const user = useSelector((state) => state.userInfos.value);
-  const [tweets, setTweets] = useState([]);
+  //const [tweets, setTweets] = useState([]);
 
   if (!user.token) {
     window.location.href = "/";
@@ -33,21 +33,22 @@ function Home() {
   };
 
   return (
-    <div className="home-container">
+    <div className="styles.home-container">
 
       {/* bloc gauche */}
-      <div className="left-section">
-        <div className="logo"></div>
-
-        <div className="profile">
-          <p className="firstname">{user.firstname}</p>
-          <p className="username">@{user.username}</p>
+      <div className="styles.left-section">
+        <div className="styles.logo">
+          <img src="/logo-twitter.png" alt="logo" className={styles.modallogo} />
+        </div>
+        <div className="styles.profile">
+          <p className="styles.firstname">{user.firstname}</p>
+          <p className="styles.username">@{user.username}</p>
           <button onClick={logout}>Logout</button>
         </div>
       </div>
 
       {/* bloc centrée */}
-      <main className="center-section">
+      <main className="styles.center-section">
         <Tweet onNewTweet={handleNewTweet} />
         <LastTweets tweets={tweets} />
       </main>

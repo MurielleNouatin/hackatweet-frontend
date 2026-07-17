@@ -8,7 +8,9 @@ function Tweet({ onNewTweet }) {
   const [content, setContent] = useState("");
 
   const handlePostTweet = () => {
-    if (content.length === 0 || content.length > 280) return;
+    if (content.length === 0 || content.length > 280) {
+      return;
+    } 
 
     fetch("http://localhost:3000/tweets", {
       method: "POST",
@@ -25,7 +27,7 @@ function Tweet({ onNewTweet }) {
   };
 
   return (
-    <div className="tweet-form">
+    <div className="styles.tweet-form">
       <textarea
         maxLength={280}
         value={content}

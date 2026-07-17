@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import user from '../reducers/user';
+import tweetDraft from '../reducers/tweetDraft';
+
 
 const store = configureStore({
-  reducer: { user },
+  reducer: { userInfos, tweetDraft },
 });
 
 function App({ Component, pageProps }) {

@@ -4,7 +4,7 @@ const initialState = {
   value: "",
 };
 
-export const tweetSlice = createSlice({
+export const tweetDraftSlice = createSlice({
   name: "tweetDraft",
   initialState,
   reducers: {
@@ -17,5 +17,5 @@ export const tweetSlice = createSlice({
   },
 });
 
-export const { setDraft, clearDraft } = tweetSlice.actions;
+export const { setDraft, clearDraft } = tweetDraftSlice.actions;
 export default tweetDraftSlice.reducer;
