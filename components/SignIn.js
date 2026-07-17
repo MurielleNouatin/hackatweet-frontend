@@ -42,6 +42,11 @@ function SignIn({ onClose }) {
         <img src="/logo-twitter.png" alt="logo" className={styles.modallogo} />
         <h2>Connect to Hackatweek</h2>
         <input
+          placeholder="First name"
+          value={firstname}
+          onChange={(e) => setFirstname(e.target.value)}
+        />
+        <input
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
