@@ -9,6 +9,7 @@
   color: var(--color-text);
 }
 
+
 .tweetsList {
   display: flex;
   flex-direction: column;

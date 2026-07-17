@@ -64,6 +64,8 @@ function Hashtag() {
           onChange={handleSearchChange}
           placeholder="Search hashtag..."
         />
+        
+        <hr className={styles.separator} />
 
         {tweets.length === 0 ? (
           <p className={styles.noResults}>No tweets found with #{name}</p>

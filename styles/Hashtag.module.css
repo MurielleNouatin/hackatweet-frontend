@@ -74,10 +74,17 @@
   padding: 12px 20px;
   border-radius: 20px;
   border: none;
+  outline: none;
   background-color: var(--color-input-bg);
   color: var(--color-text);
   font-family: var(--font-base);
   margin-bottom: 20px;
+}
+
+.separator {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 20px -30px;
 }
 
 .noResults {
