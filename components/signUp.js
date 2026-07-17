@@ -19,7 +19,7 @@ function SignUp({ onClose }) {
       return;
     }
 
-    fetch('http://localhost:3000/login/signup', {
+    fetch('https://hackatweet-backend-khaki.vercel.app/login/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ firstname, username, password }),

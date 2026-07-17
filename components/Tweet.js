@@ -17,7 +17,7 @@ function Tweet({ onNewTweet }) {
       return;
     } 
 
-    fetch("http://localhost:3000/tweets", {
+    fetch("https://hackatweet-backend-khaki.vercel.app/tweets", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ content, token: user.token }),

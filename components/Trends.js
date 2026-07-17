@@ -6,7 +6,7 @@ function Trends({ tweets }) {
   const [trends, setTrends] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/tweets/trends")
+    fetch("https://hackatweet-backend-khaki.vercel.app/tweets/trends")
       .then((res) => res.json())
       .then((data) => setTrends(data.trends));
   }, [tweets]);

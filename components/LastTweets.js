@@ -12,7 +12,7 @@ function LastTweets({ tweets, setTweets }) {
   const user = useSelector((state) => state.user.value);
 
   const handleLike = (tweetId) => {
-    fetch(`http://localhost:3000/tweets/${tweetId}/like`, {
+    fetch(`https://hackatweet-backend-khaki.vercel.app/tweets/${tweetId}/like`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ token: user.token }),
@@ -28,7 +28,7 @@ function LastTweets({ tweets, setTweets }) {
   };
 
   const handleDelete = (tweetId) => {
-    fetch(`http://localhost:3000/tweets/${tweetId}`, {
+    fetch(`https://hackatweet-backend-khaki.vercel.app/tweets/${tweetId}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ token: user.token }),

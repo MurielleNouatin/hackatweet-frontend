@@ -16,7 +16,7 @@ function Home() {
   const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/tweets")
+    fetch("https://hackatweet-backend-khaki.vercel.app/tweets")
       .then((res) => res.json())
       .then((data) => setTweets(data.tweets));
   }, []);

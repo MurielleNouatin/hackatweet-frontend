@@ -16,7 +16,7 @@ function Hashtag() {
     useEffect(() => {
     if (name) {
       setSearchValue(`#${name}`);
-      fetch(`http://localhost:3000/tweets/hashtag/${name}`)
+      fetch(`https://hackatweet-backend-khaki.vercel.app/tweets/hashtag/${name}`)
         .then((res) => res.json())
         .then((data) => setTweets(data.tweets));
     }
