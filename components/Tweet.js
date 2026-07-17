@@ -1,11 +1,16 @@
 // components/Tweet.js
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import "./Tweet.css";
+import { useSelector, useDispatch } from "react-redux";
+import styles from '../styles/Tweet.module.css';
+import { setDraft, clearDraft } from "../reducers/tweetDraft";
+
 
 function Tweet({ onNewTweet }) {
   const user = useSelector((state) => state.userInfos.value);
-  const [content, setContent] = useState("");
+  const content = useSelector((state) => state.tweetDraft.value);
+
+  const dispatch = useDispatch();
+
 
   const handlePostTweet = () => {
     if (content.length === 0 || content.length > 280) {
@@ -21,7 +26,7 @@ function Tweet({ onNewTweet }) {
       .then((data) => {
         if (data.result) {
           onNewTweet(data.tweet);
-          setContent("");
+          dispatch(clearDraft());
         }
       });
   };
@@ -31,7 +36,7 @@ function Tweet({ onNewTweet }) {
       <textarea
         maxLength={280}
         value={content}
-        onChange={(e) => setContent(e.target.value)}
+        onChange={(e) => dispatch(setDraft(e.target.value))}
         placeholder="What's up?"
       />
       <p>{content.length}/280</p>

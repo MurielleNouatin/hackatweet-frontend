@@ -1,6 +1,7 @@
 // components/LastTweets.js
 import { useSelector } from "react-redux";
-import "./LastTweets.css";
+import styles from '../styles/LastTweets.module.css';
+
 
 function LastTweets({ tweets }) {
   const user = useSelector((state) => state.user.value);
@@ -22,29 +23,29 @@ function LastTweets({ tweets }) {
   };
 
   return (
-    <div className="last-tweets">
+    <div className="styles.last-tweets">
       <h3>Last tweets</h3>
 
-      <div className="tweets-list">
+      <div className="styles.tweets-list">
         {tweets.map((tweet) => {
           const isOwner = tweet.user.username === user.username;
 
           return (
-            <div key={tweet._id} className="tweet-item">
+            <div key={tweet._id} className="styles.tweet-item">
               <p>
                 <strong>{tweet.user.firstname}</strong> @{tweet.user.username}
               </p>
 
               <p>{tweet.content}</p>
 
-              <div className="tweet-actions">
+              <div className="styles.tweet-actions">
                 <button onClick={() => handleLike(tweet._id)}>
                   ♡ {tweet.likes.length}
                 </button>
 
                 {isOwner && (
                   <button
-                    className="delete-btn"
+                    className="styles.delete-btn"
                     onClick={() => handleDelete(tweet._id)}
                   >
                     🗑️
