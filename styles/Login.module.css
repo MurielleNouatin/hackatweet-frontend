@@ -23,7 +23,7 @@
 
 .rightPanel {
   flex: 1;
-  background-color: #0C1316;
+  background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,25 +37,24 @@
 }
 
 .title {
-  font-family: 'Mont-Heavy', Verdana, sans-serif;
-  color: white;
+  font-family: var(--font-heavy);
+  color: var(--color-text);
   font-size: 64px;
   line-height: 1.1;
   margin-bottom: 30px;
 }
 
 .subtitle {
-  font-family: 'Mont-Heavy', Verdana, sans-serif;
-  color: white;
+  font-family: var(--font-heavy);
+  color: var(--color-text);
   font-size: 22px;
   margin-bottom: 20px;
 }
 
-/* BOUTONS PAGE PRINCIPALE */
 .signupBtn {
-  background-color: #2D78C6;
+  background-color: var(--color-bg);
   color: white;
-  border: none;
+  border: 1px solid #8899a6;
   border-radius: 25px;
   padding: 12px 0;
   width: 300px;
@@ -63,28 +62,37 @@
   font-weight: bold;
   cursor: pointer;
   margin-bottom: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.signupBtn:hover {
+  background-color: #212F40;
 }
 
 .alreadyHave {
-  color: white;
-  font-family: Verdana, sans-serif;
+  color: var(--color-text);
+  font-family: var(--font-base);
   font-size: 13px;
   margin-bottom: 10px;
 }
 
 .signinBtn {
   background-color: transparent;
-  color: #2D78C6;
-  border: 1px solid #2D78C6;
+  color: var(--color-accent-hover);
+  border: 1px solid #8899a6;
   border-radius: 25px;
   padding: 12px 0;
   width: 300px;
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-/* MODAL - COMMUN */
+.signinBtn:hover {
+  background-color: #212F40;
+}
+
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -99,7 +107,7 @@
 }
 
 .modal {
-  background: #151D27;
+  background: var(--color-bg);
   border-radius: 16px;
   padding: 40px;
   width: 350px;
@@ -111,8 +119,8 @@
 }
 
 .modal h2 {
-  color: white;  
-  font-family: Verdana, sans-serif;
+  color: var(--color-text);
+  font-family: var(--font-base);
 }
 
 .closeBtn {
@@ -123,15 +131,15 @@
   border: none;
   font-size: 20px;
   cursor: pointer;
-  color: white;
+  color: var(--color-text);
 }
 
 .modal input {
   padding: 12px;
   border: 1px solid #ccc;
   background-color: transparent;
-  color: white;
-  font-family: Verdana, sans-serif;
+  color: var(--color-text);
+  font-family: var(--font-base);
   width: 250px;
 }
 
@@ -140,8 +148,6 @@
   font-size: 13px;
 }
 
-/* BOUTON DANS LA MODALE SIGN IN — couleur différente, classe séparée */
-
 .modallogo {
   width: 100px;
   transform: rotate(0.5turn);
@@ -149,12 +155,13 @@
 
 .modalSubmitBtn {
   background: white;
-  color: #151D27;
-  border: none;
+  color: var(--color-bg);
+  border: 1px solid #8899a6;
   border-radius: 25px;
   padding: 12px 0;
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
   width: 250px;
+  transition: background-color 0.2s ease;
 }

@@ -1,12 +1,12 @@
 .lastTweets {
   margin-top: 20px;
-  color: white;
+  color: var(--color-text);
 }
 
 .lastTweets h3 {
   margin-bottom: 15px;
   font-size: 1.3rem;
-  color: white;
+  color: var(--color-text);
 }
 
 .tweetsList {
@@ -16,14 +16,14 @@
 }
 
 .tweetItem {
-  background-color: #161b22;
+  background-color: var(--color-bg-card);
   padding: 15px;
   border-radius: 12px;
-  color: white;
+  color: var(--color-text);
 }
 
 .tweetItem p {
-  color: white;
+  color: var(--color-text);
   margin: 8px 0;
 }
 
@@ -51,24 +51,24 @@
 
 .tweetMeta {
   margin: 0;
-  color: white;
+  color: var(--color-text);
 }
 
 .handle {
-  color: #8899a6;
+  color: var(--color-text-muted);
   font-weight: normal;
 }
 
 .dot {
-  color: #8899a6;
+  color: var(--color-text-muted);
 }
 
 .time {
-  color: #8899a6;
+  color: var(--color-text-muted);
   font-weight: normal;
 }
 
 .content {
-  color: white;
+  color: var(--color-text);
   margin: 8px 0;
 }

@@ -8,3 +8,17 @@ html, body {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --color-bg: #151D27;
+  --color-bg-card: #161b22;
+  --color-input-bg: #1B232C;
+  --color-border: #22303c;
+  --color-accent: #1da1f2;
+  --color-accent-hover: #2D78C6;
+  --color-like: #F71773;
+  --color-text: white;
+  --color-text-muted: #8899a6;
+  --font-heavy: 'Mont-Heavy', Verdana, sans-serif;
+  --font-base: Verdana, sans-serif;
+}

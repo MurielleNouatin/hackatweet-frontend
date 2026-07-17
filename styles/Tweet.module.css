@@ -1,5 +1,5 @@
 .tweetForm {
-  background-color: #161b22;
+  background-color: var(--color-bg-card);
   padding: 15px;
   border-radius: 12px;
   margin-bottom: 20px;
@@ -8,23 +8,22 @@
 .tweetForm textarea {
   width: 100%;
   height: 80px;
-  background-color: #0d1117;
-  border: 1px solid #30363d;
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   padding: 10px;
-  color: white;
+  color: var(--color-text);
   resize: none;
-  box-sizing: border-box;
 }
 
 .tweetForm p {
   text-align: right;
-  color: #8b949e;
+  color: var(--color-text-muted);
   font-size: 0.9rem;
 }
 
 .tweetForm button {
-  background-color: #1da1f2;
+  background-color: var(--color-accent);
   border: none;
   padding: 10px 20px;
   border-radius: 20px;
